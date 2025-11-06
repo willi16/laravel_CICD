@@ -11,9 +11,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      #récupérer le code source
       - name: Récupérer le code source
         uses: actions/checkout@v5
-  #tester le code source
+      #tester le code source
+      - name: Run test
+        run: cd app && php artisan test
 
   #si correct construire l'image
 
