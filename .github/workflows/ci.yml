@@ -18,7 +18,9 @@ jobs:
       - name: Run test
         run: cd app && composer i && cp .env.example .env && php artisan key:gen && php artisan test
 
-  #si correct construire l'image
+      #si correct construire l'image
+      - name: Build app_image
+        run: docker build -t willy16/laravel_cicd:latest .
 
   #se connecter à docker hub
 
