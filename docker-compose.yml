@@ -1,0 +1,27 @@
+# définir les services app e tdb
+services:
+  app:
+    image: laravelapp
+    build: . # créer une image à partir du dockerFile courant
+    entrypoint: ["/bin/bash","/project/entrypoint.sh"]
+    restart: unless-stopped
+    ports:
+      - "7001:8000"
+    volumes:
+      - ./app:/project
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+    env_file:
+      - .env
+        #environment:
+        #- POSTGRES_USER=${DB_USERNAME}
+        #- POSTGRES_DB=${DB_DATABASE}
+        #- POSTGRES_PASSWORD=${DB_PASSWORD}
+
+volumes:
+  dbdata:
