@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v5
       #tester le code source
       - name: Run test
-        run: cd app && composer i php artisan test
+        run: cd app && composer i php artisan key:gen && php artisan test
 
   #si correct construire l'image
 
