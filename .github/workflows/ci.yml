@@ -1,0 +1,22 @@
+#definir un nom
+name: Laravel_CI
+
+#definir les déclencheurs
+on:
+  push:
+    branches: [main]
+
+jobs:
+  #définir un runners
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le code source
+        uses: actions/checkout@v5
+  #tester le code source
+
+  #si correct construire l'image
+
+  #se connecter à docker hub
+
+  #pousser l'image en deux versions v1 et latest
